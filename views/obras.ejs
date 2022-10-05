@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Página Principal</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<%obras.forEach(obra=>{%>
+		<center>
+			<h2><a href="/obras/<%=obra.id%>"><%=obra.name%></a></h2>
+			<h3><%=obra.id%></h3>
+
+		</center>
+		<hr>
+		<br>
+	<%});%>
+</body>
+</html>

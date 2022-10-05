@@ -4,9 +4,16 @@ const port = 8080;
 const connection = require('./database/database.js');
 
 const Autores = [
-	{name: 'Pagu', id: 0},
-	{name: 'Tarsila', id:1},
-	{name: 'Villa Lobos', id:2}
+	{	
+		id:0,
+		nome: "Pagu",
+		datNasc: "DD/MM/AAAA",
+		datMort: "DD/MM/AAAA",
+		bio: "Essa é uma biografia",
+		obras: "Obras estarão linkadas no banco",
+		foto: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pagu.jpg"
+	}
+
 ];
 
 const Obras = [
@@ -38,11 +45,11 @@ app.get('/historia', (req, res)=>{
 });
 
 app.get('/obras', (req,res)=>{
-	res.send('Rota das obras');
+	res.render('obras', {obras: Obras});
 });
 
 app.get('/autores', (req,res)=>{
-	res.send('Rota dos autores');
+	res.render('autores', {autores: Autores});
 });
 
 app.get('/obras/:id', (req,res)=>{
@@ -62,7 +69,7 @@ app.get('/autores/:id', (req,res)=>{
 		if(id==undefined){
 			res.redirect('/autores');
 		}else{
-			res.render('autor', {id: id, nome: (Autores[id].name)});
+			res.render('autor', {autor: Autores[id]});
 		}
 	}
 });
