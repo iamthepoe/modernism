@@ -2,6 +2,8 @@ const Express = require('express');
 const app = Express();
 const port = 8080;
 const connection = require('./database/database.js');
+const Autor = require('./database/Autor.js');
+const Obra = require('./database/Obra.js');
 
 const Autores = [
 	{	
@@ -13,7 +15,6 @@ const Autores = [
 		obras: "Obras estarão linkadas no banco",
 		foto: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pagu.jpg"
 	}
-
 ];
 
 const Obras = [
